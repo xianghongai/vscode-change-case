@@ -1,51 +1,29 @@
 {
   "name": "vscode-change-case",
-  "displayName": "Change Case (Updated)",
+  "publisher": "NicholasHsiang",
+  "displayName": "Change Case++",
   "description": "Quickly change the case (camelCase, CONSTANT_CASE, snake_case, etc) of the current selection or current word",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
   "icon": "images/change-case-icon.png",
-  "galleryBanner": {
-    "color": "#1e1e1e",
-    "theme": "dark"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hjdarnel/vscode-change-case.git"
+    "url": "https://github.com/xianghongai/vscode-change-case.git"
   },
   "bugs": {
-    "url": "https://github.com/hjdarnel/vscode-change-case/issues"
+    "url": "https://github.com/xianghongai/vscode-change-case/issues"
   },
-  "license": "MIT",
-  "version": "0.0.0-semantically-released",
-  "publisher": "hjdarnel",
   "engines": {
-    "vscode": "^1.58.1"
+    "vscode": "^1.90.0"
   },
   "categories": [
     "Other"
   ],
+  "main": "./out/extension.js",
   "activationEvents": [
-    "onCommand:extension.changeCase.commands",
-    "onCommand:extension.changeCase.renameFile",
-    "onCommand:extension.changeCase.camel",
-    "onCommand:extension.changeCase.constant",
-    "onCommand:extension.changeCase.dot",
-    "onCommand:extension.changeCase.kebab",
-    "onCommand:extension.changeCase.lower",
-    "onCommand:extension.changeCase.lowerFirst",
-    "onCommand:extension.changeCase.no",
-    "onCommand:extension.changeCase.param",
-    "onCommand:extension.changeCase.pascal",
-    "onCommand:extension.changeCase.path",
-    "onCommand:extension.changeCase.sentence",
-    "onCommand:extension.changeCase.snake",
-    "onCommand:extension.changeCase.snakeUpper",
-    "onCommand:extension.changeCase.swap",
-    "onCommand:extension.changeCase.title",
-    "onCommand:extension.changeCase.upper",
-    "onCommand:extension.changeCase.upperFirst",
-    "onCommand:extension.changeCase.sponge"
+    "onStartupFinished"
   ],
-  "main": "./out/src/extension",
   "contributes": {
     "commands": [
       {
@@ -57,142 +35,117 @@
         "title": "Change Case Rename File"
       },
       {
-        "command": "extension.changeCase.camel",
-        "title": "Change case to: camel"
+        "command": "extension.changeCase.camelCase",
+        "title": "Change case to: CamelCase"
       },
       {
-        "command": "extension.changeCase.constant",
-        "title": "Change case to: constant"
+        "command": "extension.changeCase.capitalCase",
+        "title": "Change case to: Capital Case"
       },
       {
-        "command": "extension.changeCase.dot",
-        "title": "Change case to: dot"
+        "command": "extension.changeCase.constantCase",
+        "title": "Change case to: CONSTANT_CASE"
       },
       {
-        "command": "extension.changeCase.kebab",
-        "title": "Change case to: kebab"
+        "command": "extension.changeCase.dotCase",
+        "title": "Change case to: dot.case"
       },
       {
-        "command": "extension.changeCase.lower",
-        "title": "Change case to: lower"
+        "command": "extension.changeCase.kebabCase",
+        "title": "Change case to: kebab-case"
       },
       {
-        "command": "extension.changeCase.lowerFirst",
-        "title": "Change case to: lowerFirst"
+        "command": "extension.changeCase.noCase",
+        "title": "Change case to: no case"
       },
       {
-        "command": "extension.changeCase.no",
-        "title": "Change case to: no"
+        "command": "extension.changeCase.pascalCase",
+        "title": "Change case to: PascalCase"
       },
       {
-        "command": "extension.changeCase.param",
-        "title": "Change case to: param"
+        "command": "extension.changeCase.pathCase",
+        "title": "Change case to: path/case"
       },
       {
-        "command": "extension.changeCase.pascal",
-        "title": "Change case to: pascal"
+        "command": "extension.changeCase.sentenceCase",
+        "title": "Change case to: Sentence case"
       },
       {
-        "command": "extension.changeCase.path",
-        "title": "Change case to: path"
+        "command": "extension.changeCase.snakeCase",
+        "title": "Change case to: snake_case"
       },
       {
-        "command": "extension.changeCase.sentence",
-        "title": "Change case to: sentence"
-      },
-      {
-        "command": "extension.changeCase.snake",
-        "title": "Change case to: snake"
-      },
-      {
-        "command": "extension.changeCase.snakeUpper",
-        "title": "Change case to: Snake_Upper"
-      },
-      {
-        "command": "extension.changeCase.swap",
-        "title": "Change case to: swap"
-      },
-      {
-        "command": "extension.changeCase.title",
-        "title": "Change case to: title"
-      },
-      {
-        "command": "extension.changeCase.upper",
-        "title": "Change case to: upper"
-      },
-      {
-        "command": "extension.changeCase.upperFirst",
-        "title": "Change case to: upperFirst"
-      },
-      {
-        "command": "extension.changeCase.sponge",
-        "title": "Change case to: sponge"
+        "command": "extension.changeCase.trainCase",
+        "title": "Change case to: Train-Case"
       }
-    ]
-  },
-  "configuration": {
-    "type": "object",
-    "title": "changeCase configuration",
-    "properties": {
-      "changeCase.includeDotInCurrentWord": {
-        "type": "boolean",
-        "default": "false",
-        "description": "When selecting current word, allow dots in current word (false by default)"
+    ],
+    "keybindings": [
+      {
+        "command": "extension.changeCase.camelCase",
+        "key": "ctrl+u ctrl+c"
+      },
+      {
+        "command": "extension.changeCase.constantCase",
+        "key": "ctrl+u ctrl+u"
+      },
+      {
+        "command": "extension.changeCase.kebabCase",
+        "key": "ctrl+u ctrl+k"
+      },
+      {
+        "command": "extension.changeCase.pascalCase",
+        "key": "ctrl+u ctrl+p"
+      },
+      {
+        "command": "extension.changeCase.pathCase",
+        "key": "ctrl+u ctrl+/"
+      },
+      {
+        "command": "extension.changeCase.snakeCase",
+        "key": "ctrl+u ctrl+s"
+      }
+    ],
+    "configuration": {
+      "title": "Change Case++",
+      "properties": {
+        "changeCase.includeDotInCurrentWord": {
+          "type": "boolean",
+          "default": "false",
+          "description": "When selecting current word, allow dots in current word (false by default)"
+        }
       }
     }
   },
   "scripts": {
-    "vscode:prepublish": "tsc -p ./",
-    "lint": "eslint src --ext ts",
+    "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
+    "lint": "eslint \"src/**/*.ts\"",
+    "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
-    "test": "mocha \"./out/test/unit\"",
-    "test:integration": "node ./out/test/suite/runTest.js",
-    "semantic-release": "semantic-release"
-  },
-  "release": {
-    "verifyConditions": [
-      "semantic-release-vsce",
-      "@semantic-release/github"
-    ],
-    "prepare": {
-      "path": "semantic-release-vsce",
-      "packageVsix": "vscode-change-case.vsix"
-    },
-    "publish": [
-      "semantic-release-vsce",
-      {
-        "path": "@semantic-release/github",
-        "assets": "vscode-change-case.vsix"
-      }
-    ]
+    "test": "vscode-test",
+    "prebuild": "npm run compile",
+    "build": "vsce package",
+    "prepublish": "npm run build",
+    "publish": "vsce publish"
   },
   "devDependencies": {
-    "@types/mocha": "^8.2.2",
-    "@types/node": "^15.0.1",
-    "@types/vscode": "^1.58.1",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
-    "eslint": "^7.25.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "mocha": "^8.2.2",
-    "prettier": "^2.2.1",
-    "semantic-release": "^17.4.2",
-    "semantic-release-vsce": "^3.5.0",
-    "typescript": "^4.2.4",
-    "vscode-test": "^1.5.2"
+    "@stylistic/eslint-plugin": "^2.10.1",
+    "@types/lodash": "^4.17.13",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "^22.9.0",
+    "@types/vscode": "^1.90.0",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "@vscode/vsce": "^3.2.1",
+    "eslint": "^9.14.0",
+    "mocha": "^10.8.2",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.14.0"
   },
   "dependencies": {
-    "change-case": "^4.1.2",
-    "lodash.range": "^3.2.0",
-    "lodash.uniq": "^4.5.0",
-    "lower-case": "^2.0.2",
-    "sponge-case": "^1.0.1",
-    "swap-case": "^2.0.2",
-    "title-case": "^3.0.3",
-    "upper-case": "^2.0.2",
-    "upper-case-first": "^2.0.2",
-    "vscode-uri": "^3.0.3"
+    "change-case": "^4.0.0",
+    "lodash": "^4.17.21"
   }
 }

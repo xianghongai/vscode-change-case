@@ -1,7 +1,17 @@
+out
+node_modules
+package-lock.json
+yarn.lock
+
+# Log files
 logs
 *.log
 
-out
-node_modules
+# Editor directories and files
+.idea
 
-.vscode-test
+# Goods
+*.vsix
+snippets/*
+
+.vscode-test/

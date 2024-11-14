@@ -1,25 +1,27 @@
-import * as vscode from 'vscode';
-import { changeCaseCommands, runCommand, COMMAND_LABELS, renameFileCommand } from './change-case-commands';
+import { commands, ExtensionContext } from 'vscode';
+import { COMMAND_LABELS } from './constant';
+import { changeCaseQuickPick, runCommand } from './functions/change-case';
+import { renameFile } from './functions/rename-file';
 
-export function activate(context: vscode.ExtensionContext) {
-    vscode.commands.registerCommand('extension.changeCase.commands', changeCaseCommands);
-    vscode.commands.registerCommand('extension.changeCase.renameFile', renameFileCommand);
-    vscode.commands.registerCommand('extension.changeCase.camel', () => runCommand(COMMAND_LABELS.camel));
-    vscode.commands.registerCommand('extension.changeCase.constant', () => runCommand(COMMAND_LABELS.constant));
-    vscode.commands.registerCommand('extension.changeCase.dot', () => runCommand(COMMAND_LABELS.dot));
-    vscode.commands.registerCommand('extension.changeCase.kebab', () => runCommand(COMMAND_LABELS.kebab));
-    vscode.commands.registerCommand('extension.changeCase.lower', () => runCommand(COMMAND_LABELS.lower));
-    vscode.commands.registerCommand('extension.changeCase.lowerFirst', () => runCommand(COMMAND_LABELS.lowerFirst));
-    vscode.commands.registerCommand('extension.changeCase.no', () => runCommand(COMMAND_LABELS.no));
-    vscode.commands.registerCommand('extension.changeCase.param', () => runCommand(COMMAND_LABELS.param));
-    vscode.commands.registerCommand('extension.changeCase.pascal', () => runCommand(COMMAND_LABELS.pascal));
-    vscode.commands.registerCommand('extension.changeCase.path', () => runCommand(COMMAND_LABELS.path));
-    vscode.commands.registerCommand('extension.changeCase.sentence', () => runCommand(COMMAND_LABELS.sentence));
-    vscode.commands.registerCommand('extension.changeCase.snake', () => runCommand(COMMAND_LABELS.snake));
-    vscode.commands.registerCommand('extension.changeCase.snakeUpper', () => runCommand(COMMAND_LABELS.snakeUpper));
-    vscode.commands.registerCommand('extension.changeCase.swap', () => runCommand(COMMAND_LABELS.swap));
-    vscode.commands.registerCommand('extension.changeCase.title', () => runCommand(COMMAND_LABELS.title));
-    vscode.commands.registerCommand('extension.changeCase.upper', () => runCommand(COMMAND_LABELS.upper));
-    vscode.commands.registerCommand('extension.changeCase.upperFirst', () => runCommand(COMMAND_LABELS.upperFirst));
-    vscode.commands.registerCommand('extension.changeCase.sponge', () => runCommand(COMMAND_LABELS.sponge));
+export async function activate({ subscriptions }: ExtensionContext) {
+  const changeCaseQuickPickCommand = commands.registerCommand('extension.changeCase.commands', changeCaseQuickPick);
+  const renameFileCommand = commands.registerCommand('extension.changeCase.renameFile', renameFile);
+  // Change Case Commands
+  const camelCaseCommand = commands.registerCommand('extension.changeCase.camelCase', () => runCommand(COMMAND_LABELS.camelCase));
+  const capitalCaseCommand = commands.registerCommand('extension.changeCase.capitalCase', () => runCommand(COMMAND_LABELS.capitalCase));
+  const constantCaseCommand = commands.registerCommand('extension.changeCase.constantCase', () => runCommand(COMMAND_LABELS.constantCase));
+  const dotCaseCommand = commands.registerCommand('extension.changeCase.dotCase', () => runCommand(COMMAND_LABELS.dotCase));
+  const kebabCaseCommand = commands.registerCommand('extension.changeCase.kebabCase', () => runCommand(COMMAND_LABELS.kebabCase));
+  const noCaseCommand = commands.registerCommand('extension.changeCase.noCase', () => runCommand(COMMAND_LABELS.noCase));
+  const pascalCaseCommand = commands.registerCommand('extension.changeCase.pascalCase', () => runCommand(COMMAND_LABELS.pascalCase));
+  // const pascalSnakeCaseCommand = commands.registerCommand('extension.changeCase.pascalSnakeCase', () => runCommand(COMMAND_LABELS.pascalSnakeCase));
+  const pathCaseCommand = commands.registerCommand('extension.changeCase.pathCase', () => runCommand(COMMAND_LABELS.pathCase));
+  const sentenceCaseCommand = commands.registerCommand('extension.changeCase.sentenceCase', () => runCommand(COMMAND_LABELS.sentenceCase));
+  const snakeCaseCommand = commands.registerCommand('extension.changeCase.snakeCase', () => runCommand(COMMAND_LABELS.snakeCase));
+  const trainCaseCommand = commands.registerCommand('extension.changeCase.trainCase', () => runCommand(COMMAND_LABELS.trainCase));
+
+  subscriptions.push(changeCaseQuickPickCommand, renameFileCommand, camelCaseCommand, capitalCaseCommand, constantCaseCommand, dotCaseCommand, kebabCaseCommand, noCaseCommand, pascalCaseCommand, pathCaseCommand, sentenceCaseCommand, snakeCaseCommand, trainCaseCommand);
+}
+
+export function deactivate() {
 }

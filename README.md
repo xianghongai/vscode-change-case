@@ -1,81 +1,62 @@
-# Change Case Extension for Visual Studio Code
-[![VSCode Marketplace version](https://img.shields.io/visual-studio-marketplace/v/hjdarnel.vscode-change-case?label=vscode%20marketplace&style=flat-square)](https://marketplace.visualstudio.com/items?itemName=hjdarnel.vscode-change-case)
-[![OVSC version](https://img.shields.io/open-vsx/v/hjdarnel/vscode-change-case?style=flat-square)](https://open-vsx.org/extension/hjdarnel/vscode-change-case)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<p>
+  <h1 align="center">Change Case Extension for Visual Studio Code</h1>
+</p>
 
-This is a fork of [wmaurer/vscode-change-case](https://github.com/wmaurer/vscode-change-case), which I intend to keep up with, track issues, and update regularly.
+<p align="center">
+  <a href="https://github.com/xianghongai/vscode-change-case">
+    <img src="https://img.shields.io/github/repo-size/xianghongai/vscode-change-case?color=4ac51c&style=plastic&?cacheSeconds=3600">
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=nicholashsiang.vscode-change-case">
+    <img src="https://img.shields.io/visual-studio-marketplace/v/nicholashsiang.vscode-change-case?color=%234ac51c&style=plastic&?cacheSeconds=3600">
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=nicholashsiang.vscode-change-case">
+    <img src="https://img.shields.io/visual-studio-marketplace/d/nicholashsiang.vscode-change-case?color=4ac51c&style=plastic&?cacheSeconds=3600">
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=nicholashsiang.vscode-change-case">
+    <img src="https://img.shields.io/visual-studio-marketplace/r/nicholashsiang.vscode-change-case?color=4ac51c&style=plastic&?cacheSeconds=3600">
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=nicholashsiang.vscode-change-case">
+    <img src="https://img.shields.io/github/license/xianghongai/vscode-change-case?color=4ac51c&style=plastic&?cacheSeconds=3600">
+  </a>
+</p>
 
-A wrapper around [node-change-case](https://github.com/blakeembrey/node-change-case) for Visual Studio Code.
-Quickly change the case of the current selection or current word.
+Fork: 🎉 Here ← [hjdarnel/vscode-change-case](https://github.com/hjdarnel/vscode-change-case) ← [wmaurer/vscode-change-case](https://github.com/wmaurer/vscode-change-case) ← (: Thanks.
 
-If only one word is selected, the `extension.changeCase.commands` command gives you a preview of each option:
+## Design
 
-![change-case-preview](https://cloud.githubusercontent.com/assets/2899448/10712456/3c5e29b6-7a9c-11e5-9ce4-7eb944889696.gif)
+"YES, YES, VERY SMOOTH, SUPER SMOOTH".
 
-`change-case` also works with multiple cursors:
+---
 
-![change-case-multi](https://cloud.githubusercontent.com/assets/2899448/10712454/1a9019e8-7a9c-11e5-8f06-91fd2d7e21bf.gif)
+无需刻意去死记硬背，几乎没有记忆成本，释放你的小宇宙！ ヾ(´︶`*)ﾉ♬
 
-*Note:* Please read the [documentation](https://code.visualstudio.com/Docs/editor/editingevolved) on how to use multiple cursors in Visual Studio Code.
+快捷键的设计，非常顺手。 😎。
 
-Also, with `extension.changeCase.renameFile` it is possible to change casing of active files.
+## 更新命名
 
-## Install
+Just do it:
 
-Launch VS Code Quick Open (Ctrl/Cmd+P), paste the following command, and press enter.
-```
-ext install change-case
-```
+1. Trigger with the <strong><u style="color: red;">U</u></strong>Pdate operation "prefix";
+2. Followed by your preferred style "prefix".
 
-## Commands
+选择词组后，进行命名风格更新操作：
 
-| Command                           | Output      | Explanation                                                                                   |
-|-----------------------------------|-------------|-----------------------------------------------------------------------------------------------|
-| `extension.changeCase.commands`   | Hello world | List all commands, with preview if only one word is selected                                  |
-| `extension.changeCase.camel`      | helloWorld  | A string with the separators denoted by having the next letter capitalized                    |
-| `extension.changeCase.constant`   | HELLO_WORLD | An upper case, underscore separated string                                                    |
-| `extension.changeCase.dot`        | hello.world | A lower case, period separated string                                                         |
-| `extension.changeCase.kebab`      | hello-world | A lower case, dash separated string (alias for param case)                                    |
-| `extension.changeCase.lower`      | hello world | A string in lower case                                                                        |
-| `extension.changeCase.lowerFirst` | hello world | A string with the first character lower cased                                                 |
-| `extension.changeCase.no`         | hello world | Convert the string without any casing (lower case, space separated)                           |
-| `extension.changeCase.param`      | hello-world | A lower case, dash separated string                                                           |
-| `extension.changeCase.pascal`     | HelloWorld  | A string denoted in the same fashion as camelCase, but with the first letter also capitalized |
-| `extension.changeCase.path`       | hello/world | A lower case, slash separated string                                                          |
-| `extension.changeCase.sentence`   | Hello world | A lower case, space separated string                                                          |
-| `extension.changeCase.snake`      | Hello_World | A lower case, underscore separated string                                                     |
-| `extension.changeCase.snakeUpper` | Hello_World | A underscore separated string with the first character of every word upper cased              |
-| `extension.changeCase.swap`       | hELLO WORLD | A string with every character case reversed                                                   |
-| `extension.changeCase.title`      | Hello World | A space separated string with the first character of every word upper cased                   |
-| `extension.changeCase.upper`      | HELLO WORLD | A string in upper case                                                                        |
-| `extension.changeCase.upperFirst` | Hello world | A string with the first character upper cased                                                 |
-| `extension.changeCase.sponge`     | hELLo WOrLd | A to a string with random capitalization applied                                              |
+1. 通过 <strong><u style="color: red;">U</u></strong>Pdate 更新操作“前缀”触发；
+2. 继而是钟意的风格名“前缀”。
 
+| Style/命名风格                                         | Shortcut/快捷键                           |
+|--------------------------------------------------------|-------------------------------------------|
+| <strong><u style="color: red;">C</u></strong>amelCase  | <kbd>ctrl</kbd>+<kbd>u</kbd>+<kbd>c</kbd> |
+| <strong><u style="color: red;">k</u></strong>ebab-case | <kbd>ctrl</kbd>+<kbd>u</kbd>+<kbd>k</kbd> |
+| <strong><u style="color: red;">s</u></strong>nake_case | <kbd>ctrl</kbd>+<kbd>u</kbd>+<kbd>s</kbd> |
+| <strong><u style="color: red;">P</u></strong>ascalCase | <kbd>ctrl</kbd>+<kbd>u</kbd>+<kbd>p</kbd> |
+| CONSTANT_CASE                                          | <kbd>ctrl</kbd>+<kbd>u</kbd>+<kbd>u</kbd> |
+| path<strong><u style="color: red;">/</u></strong>case  | <kbd>ctrl</kbd>+<kbd>u</kbd>+<kbd>/</kbd> |
 
+## License 📃
 
-## Support
+MIT License
 
-[Create an issue](https://github.com/hjdarnel/vscode-change-case/issues)
+## Donate 🎉
 
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="http://darnell.io"><img src="https://avatars1.githubusercontent.com/u/7868899?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Henry Darnell</b></sub></a><br /><a href="https://github.com/hjdarnel/vscode-change-case/commits?author=hjdarnel" title="Code">💻</a> <a href="https://github.com/hjdarnel/vscode-change-case/commits?author=hjdarnel" title="Documentation">📖</a></td>
-    <td align="center"><a href="http://zardoy.com"><img src="https://avatars.githubusercontent.com/u/46503702?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Vitaly</b></sub></a><br /><a href="https://github.com/hjdarnel/vscode-change-case/commits?author=zardoy" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/druesendieb"><img src="https://avatars.githubusercontent.com/u/2674011?v=4?s=100" width="100px;" alt=""/><br /><sub><b>druesendieb</b></sub></a><br /><a href="#ideas-druesendieb" title="Ideas, Planning, & Feedback">🤔</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+![xianghongai@gmail.com](https://raw.githubusercontent.com/caringrun/assets/master/donate.png)
