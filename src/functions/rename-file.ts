@@ -1,24 +1,15 @@
-import { COMMAND_DEFINITIONS, COMMAND_LABELS } from '../constant';
 import { QuickPickItem, Uri, window, workspace, WorkspaceEdit } from 'vscode';
 import { basename, extname } from 'path';
+import { getCommandDefinitions } from '../config';
 
-/**
- * 重命名文件，直接指定转换方式或通过菜单选择
- * 可在 VS Code 快捷键中绑定和配置默认的转换方式，如：
- * { "key": "ctrl+u ctrl+f", "command": "extension.changeCase.renameFile", "args": "kebab" },
- */
-export async function renameFile(variantArg?: keyof typeof COMMAND_LABELS) {
-  const activeEditor = window.activeTextEditor;
-  if (!activeEditor) {
-    return;
-  }
+const commandDefinitions = getCommandDefinitions('Rename file to');
 
-  const { uri: sourceUri } = activeEditor.document;
-  const fullFileName = basename(sourceUri.fsPath);
+export async function renameFile(uri: Uri) {
+  const fullFileName = basename(uri.fsPath);
   let fileName = fullFileName;
   let fullExt = '';
 
-  // 切分两次扩展名 e.g. file.test.ts -> file & .test.ts
+  // Split extension twice e.g. file.test.ts -> file & .test.ts
   for (let i = 0; i < 2; i++) {
     const ext = extname(fileName);
     if (!ext.length) {
@@ -28,28 +19,28 @@ export async function renameFile(variantArg?: keyof typeof COMMAND_LABELS) {
     fullExt = `${ext}${fullExt}`;
   }
 
-  let newFileName: string;
-  if (variantArg) {
-    const variantLabel = COMMAND_LABELS[variantArg];
-    const commandDefinition = COMMAND_DEFINITIONS.find((c) => c.label === variantLabel);
-    if (!commandDefinition) { return; }
-    newFileName = commandDefinition.func(fileName);
-  } else {
-    const items: QuickPickItem[] = COMMAND_DEFINITIONS.map((c) => ({
-      label: c.label,
-      description: c.func(fileName)
-    }));
+  const items: QuickPickItem[] = commandDefinitions.map((c) => ({
+    label: c.label,
+    description: c.func(fileName)
+  }));
 
-    const selectedVariant = await window.showQuickPick(items, {
-      title: `Renaming ${fullFileName}`,
-      placeHolder: 'Select case variant for file name conversion'
-    });
-    if (!selectedVariant) {
-      return;
-    }
-    newFileName = selectedVariant.description!;
+  const selectedVariant = await window.showQuickPick(items, {
+    title: `Rename ${fullFileName}`,
+    placeHolder: 'Select naming format'
+  });
+
+  if (!selectedVariant) {
+    return;
   }
-  const edit = new WorkspaceEdit();
-  edit.renameFile(sourceUri, Uri.joinPath(sourceUri, '..', `${newFileName}${fullExt}`));
-  await workspace.applyEdit(edit);
+
+  try {
+    const newFileName = selectedVariant.description!;
+    const edit = new WorkspaceEdit();
+    edit.renameFile(uri, Uri.joinPath(uri, '..', `${newFileName}${fullExt}`));
+    await workspace.applyEdit(edit);
+
+    window.showInformationMessage(`File renamed to: ${newFileName}${fullExt}`);
+  } catch (error) {
+    window.showErrorMessage(`Failed to rename file: ${error instanceof Error ? error.message : String(error)}`);
+  }
 }

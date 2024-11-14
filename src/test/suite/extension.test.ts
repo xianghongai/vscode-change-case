@@ -1,9 +1,11 @@
 import * as assert from 'assert';
-import { COMMAND_LABELS, COMMAND_DEFINITIONS } from '../../constant';
+import { COMMAND_LABELS } from '../../constant';
+import { getCommandDefinitions } from '../../config';
 
 suite('Change Case Extension Tests', () => {
   // 测试输入
   const testString = 'hello world test';
+  const COMMAND_DEFINITIONS = getCommandDefinitions('Change case to');
 
   // 测试 camelCase
   test('should convert to `camelCase`', async () => {

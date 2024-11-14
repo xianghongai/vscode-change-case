@@ -2,7 +2,7 @@
   "name": "vscode-change-case",
   "publisher": "NicholasHsiang",
   "displayName": "Change Case++",
-  "description": "Quickly change the case (camelCase, CONSTANT_CASE, snake_case, etc) of the current selection or current word",
+  "description": "Quickly change/copy/paste the case (camelCase, CONSTANT_CASE, snake_case, kebab-case, etc) of the current selection or current word",
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
@@ -32,7 +32,11 @@
       },
       {
         "command": "extension.changeCase.renameFile",
-        "title": "Change Case Rename File"
+        "title": "Rename file as"
+      },
+      {
+        "command": "extension.changeCase.renameDir",
+        "title": "Rename directory as"
       },
       {
         "command": "extension.changeCase.camelCase",
@@ -77,6 +81,102 @@
       {
         "command": "extension.changeCase.trainCase",
         "title": "Change case to: Train-Case"
+      },
+      {
+        "command": "extension.copyCase.commands",
+        "title": "Copy Case Commands"
+      },
+      {
+        "command": "extension.copyCase.camelCase",
+        "title": "Copy case as: CamelCase"
+      },
+      {
+        "command": "extension.copyCase.capitalCase",
+        "title": "Copy case as: Capital Case"
+      },
+      {
+        "command": "extension.copyCase.constantCase",
+        "title": "Copy case as: CONSTANT_CASE"
+      },
+      {
+        "command": "extension.copyCase.dotCase",
+        "title": "Copy case as: dot.case"
+      },
+      {
+        "command": "extension.copyCase.kebabCase",
+        "title": "Copy case as: kebab-case"
+      },
+      {
+        "command": "extension.copyCase.noCase",
+        "title": "Copy case as: no case"
+      },
+      {
+        "command": "extension.copyCase.pascalCase",
+        "title": "Copy case as: PascalCase"
+      },
+      {
+        "command": "extension.copyCase.pathCase",
+        "title": "Copy case as: path/case"
+      },
+      {
+        "command": "extension.copyCase.sentenceCase",
+        "title": "Copy case as: Sentence case"
+      },
+      {
+        "command": "extension.copyCase.snakeCase",
+        "title": "Copy case as: snake_case"
+      },
+      {
+        "command": "extension.copyCase.trainCase",
+        "title": "Copy case as: Train-Case"
+      },
+      {
+        "command": "extension.pasteCase.commands",
+        "title": "Paste Case Commands"
+      },
+      {
+        "command": "extension.pasteCase.camelCase",
+        "title": "Paste case as: CamelCase"
+      },
+      {
+        "command": "extension.pasteCase.capitalCase",
+        "title": "Paste case as: Capital Case"
+      },
+      {
+        "command": "extension.pasteCase.constantCase",
+        "title": "Paste case as: CONSTANT_CASE"
+      },
+      {
+        "command": "extension.pasteCase.dotCase",
+        "title": "Paste case as: dot.case"
+      },
+      {
+        "command": "extension.pasteCase.kebabCase",
+        "title": "Paste case as: kebab-case"
+      },
+      {
+        "command": "extension.pasteCase.noCase",
+        "title": "Paste case as: no case"
+      },
+      {
+        "command": "extension.pasteCase.pascalCase",
+        "title": "Paste case as: PascalCase"
+      },
+      {
+        "command": "extension.pasteCase.pathCase",
+        "title": "Paste case as: path/case"
+      },
+      {
+        "command": "extension.pasteCase.sentenceCase",
+        "title": "Paste case as: Sentence case"
+      },
+      {
+        "command": "extension.pasteCase.snakeCase",
+        "title": "Paste case as: snake_case"
+      },
+      {
+        "command": "extension.pasteCase.trainCase",
+        "title": "Paste case as: Train-Case"
       }
     ],
     "keybindings": [
@@ -103,6 +203,54 @@
       {
         "command": "extension.changeCase.snakeCase",
         "key": "ctrl+u ctrl+s"
+      },
+      {
+        "command": "extension.copyCase.camelCase",
+        "key": "ctrl+y ctrl+c"
+      },
+      {
+        "command": "extension.copyCase.constantCase",
+        "key": "ctrl+y ctrl+u"
+      },
+      {
+        "command": "extension.copyCase.kebabCase",
+        "key": "ctrl+y ctrl+k"
+      },
+      {
+        "command": "extension.copyCase.pascalCase",
+        "key": "ctrl+y ctrl+p"
+      },
+      {
+        "command": "extension.copyCase.pathCase",
+        "key": "ctrl+y ctrl+/"
+      },
+      {
+        "command": "extension.copyCase.snakeCase",
+        "key": "ctrl+y ctrl+s"
+      },
+      {
+        "command": "extension.pasteCase.camelCase",
+        "key": "ctrl+i ctrl+c"
+      },
+      {
+        "command": "extension.pasteCase.constantCase",
+        "key": "ctrl+i ctrl+u"
+      },
+      {
+        "command": "extension.pasteCase.kebabCase",
+        "key": "ctrl+i ctrl+k"
+      },
+      {
+        "command": "extension.pasteCase.pascalCase",
+        "key": "ctrl+i ctrl+p"
+      },
+      {
+        "command": "extension.pasteCase.pathCase",
+        "key": "ctrl+i ctrl+/"
+      },
+      {
+        "command": "extension.pasteCase.snakeCase",
+        "key": "ctrl+i ctrl+s"
       }
     ],
     "configuration": {
@@ -114,6 +262,27 @@
           "description": "When selecting current word, allow dots in current word (false by default)"
         }
       }
+    },
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerViewletVisible && explorerResourceIsFolder",
+          "command": "extension.changeCase.renameDir",
+          "group": "7_modification"
+        },
+        {
+          "when": "explorerViewletVisible && !explorerResourceIsFolder",
+          "command": "extension.changeCase.renameFile",
+          "group": "7_modification"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "resourceSet",
+          "command": "extension.changeCase.renameFile",
+          "group": "7_modification"
+        }
+      ]
     }
   },
   "scripts": {
