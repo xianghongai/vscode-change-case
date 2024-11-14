@@ -1,5 +1,5 @@
 {
-  "name": "vscode-change-case",
+  "name": "vscode-change-case-next",
   "publisher": "NicholasHsiang",
   "displayName": "Change Case++",
   "description": "Quickly change/copy/paste the case (camelCase, CONSTANT_CASE, snake_case, kebab-case, etc) of the current selection or current word",
