@@ -5,6 +5,8 @@ import { copyCaseQuickPick, runCommand as copyCaseRunCommand } from './functions
 import { pasteCaseQuickPick, runCommand as pasteCaseRunCommand } from './functions/case-paste';
 import { renameFile } from './functions/rename-file';
 import { renameDir } from './functions/rename-dir';
+import { copyFileName } from './functions/copy-file-name';
+import { copyDirName } from './functions/copy-dir-name';
 
 export async function activate({ subscriptions }: ExtensionContext) {
   /* 1. Change Case */
@@ -54,6 +56,10 @@ export async function activate({ subscriptions }: ExtensionContext) {
   const pasteAsSnakeCaseCommand = commands.registerCommand('extension.pasteCase.snakeCase', () => pasteCaseRunCommand(COMMAND_LABELS.snakeCase));
   const pasteAsTrainCaseCommand = commands.registerCommand('extension.pasteCase.trainCase', () => pasteCaseRunCommand(COMMAND_LABELS.trainCase));
 
+  /* 4. Copy File/Directory Name */
+  const copyFileNameCommand = commands.registerCommand('extension.copyFileName', copyFileName);
+  const copyDirNameCommand = commands.registerCommand('extension.copyDirName', copyDirName);
+
   /* x. 注册所有命令 */
   const allCommands = [
     changeCaseQuickPickCommand,
@@ -93,7 +99,9 @@ export async function activate({ subscriptions }: ExtensionContext) {
     pasteAsPathCaseCommand,
     pasteAsSentenceCaseCommand,
     pasteAsSnakeCaseCommand,
-    pasteAsTrainCaseCommand
+    pasteAsTrainCaseCommand,
+    copyFileNameCommand,
+    copyDirNameCommand,
   ];
   subscriptions.push(...allCommands);
 }

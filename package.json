@@ -3,7 +3,7 @@
   "publisher": "NicholasHsiang",
   "displayName": "Change Case++",
   "description": "%extension.description%",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "MIT",
   "private": true,
   "icon": "images/change-case-icon.png",
@@ -36,6 +36,14 @@
   ],
   "contributes": {
     "commands": [
+      {
+        "command": "extension.changeCase.copyFileName",
+        "title": "%extension.changeCaseCopyFileName%"
+      },
+      {
+        "command": "extension.changeCase.copyDirName",
+        "title": "%extension.changeCaseCopyDirName%"
+      },
       {
         "command": "extension.changeCase.commands",
         "title": "%extension.changeCaseCommands%"
@@ -284,12 +292,27 @@
           "when": "explorerViewletVisible && !explorerResourceIsFolder",
           "command": "extension.changeCase.renameFile",
           "group": "7_modification"
+        },
+        {
+          "when": "explorerViewletVisible && explorerResourceIsFolder",
+          "command": "extension.changeCase.copyDirName",
+          "group": "7_modification"
+        },
+        {
+          "when": "explorerViewletVisible && !explorerResourceIsFolder",
+          "command": "extension.changeCase.copyFileName",
+          "group": "7_modification"
         }
       ],
       "editor/context": [
         {
           "when": "resourceSet",
           "command": "extension.changeCase.renameFile",
+          "group": "7_modification"
+        },
+        {
+          "when": "resourceSet",
+          "command": "extension.changeCase.copyFileName",
           "group": "7_modification"
         }
       ],
@@ -300,6 +323,14 @@
         },
         {
           "command": "extension.changeCase.renameDir",
+          "when": "false"
+        },
+        {
+          "command": "extension.changeCase.copyFileName",
+          "when": "false"
+        },
+        {
+          "command": "extension.changeCase.copyDirName",
           "when": "false"
         }
       ]

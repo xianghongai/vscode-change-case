@@ -1,11 +1,13 @@
 import { Position, Range, Selection, TextDocument, window, workspace } from 'vscode';
 import { snakeCase } from 'change-case';
+import { extname } from 'path';
 
 const CHANGE_CASE_WORD_CHARACTER_REGEX = /([\w_.\-/$]+)/;
 const CHANGE_CASE_WORD_CHARACTER_REGEX_WITHOUT_DOT = /([\w_\-/$]+)/;
 
 const FIRST_LETTER_REGEX = /^\w/;
 const FIRST_AFTER_UNDER_REGEX = /_([A-Za-z]){1}/g;
+
 /**
  * 将字符串转换为蛇形命名法 (snake_case)，然后将首字母转换为大写，将下划线后的第一个字母转换为大写。
  */
@@ -133,4 +135,30 @@ export function compareByEndPosition(a: Range | Selection, b: Range | Selection)
     return 1;
   }
   return 0;
+}
+
+interface FileNameParts {
+    fileName: string;
+    fullExt: string;
+}
+
+/**
+ * Extract filename and extension parts
+ * @example file.test.ts -> { fileName: "file", fullExt: ".test.ts" }
+ */
+export function extractFileNameParts(fullFileName: string): FileNameParts {
+    let fileName = fullFileName;
+    let fullExt = '';
+
+    // Split extension twice e.g. file.test.ts -> file & .test.ts
+    for (let i = 0; i < 2; i++) {
+        const ext = extname(fileName);
+        if (!ext.length) {
+            break;
+        }
+        fileName = fileName.slice(0, -ext.length);
+        fullExt = `${ext}${fullExt}`;
+    }
+
+    return { fileName, fullExt };
 }

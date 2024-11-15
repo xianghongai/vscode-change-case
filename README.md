@@ -109,10 +109,19 @@ We can:
 
 所支持的风格命名指令同上。
 
-## Rename / 重命名
+## File/Directory Name / 文件/目录名
 
-- 文件重命名，在资源管理器、编辑器中右键选择文件，然后选择 `Rename as...`/`重命名...` 即可。
-- 目录重命名，在资源管理器中右键选择目录，然后选择 `Rename as...`/`重命名...` 即可。
+- File rename: Explorer/Editor context menu, and then select `Rename as...`;
+- Directory rename: Explorer context menu, and then select `Rename as...`;
+- File/Directory name copy: Explorer/Editor context menu, and then select `Copy Name as...`.
+
+--
+
+- 文件重命名，在资源管理器、编辑器中右键选择文件，然后选择 `重命名...` 即可；
+- 目录重命名，在资源管理器中右键选择目录，然后选择 `重命名...` 即可；
+- 文件/目录名复制，在资源管理器、编辑器中右键选择文件/目录，然后选择 `复制名为...` 即可。
+
+为什么不提供批量重命名？因为，涉及到模块之间的引用，批量重命名，会带来很多问题，弃。
 
 ## License 📃
 
@@ -121,3 +130,5 @@ MIT License
 ## Donate 🎉
 
 ![xianghongai@gmail.com](https://raw.githubusercontent.com/caringrun/assets/master/donate.png)
+
+Powered By [Cursor](https://www.cursor.com/) 💝

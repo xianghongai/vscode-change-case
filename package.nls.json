@@ -2,5 +2,7 @@
   "extension.description": "Quickly change/copy/paste the case (camelCase, CONSTANT_CASE, snake_case, kebab-case, etc) of the current selection or current word",
   "extension.changeCaseCommands": "Change Case Commands",
   "extension.changeCaseRenameFile": "Rename as...",
-  "extension.changeCaseRenameDir": "Rename as..."
+  "extension.changeCaseRenameDir": "Rename as...",
+  "extension.changeCaseCopyFileName": "Copy Name as...",
+  "extension.changeCaseCopyDirName": "Copy Name as..."
 }
