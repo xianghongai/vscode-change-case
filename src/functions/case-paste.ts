@@ -1,8 +1,8 @@
-import { env, QuickPickItem, window } from 'vscode';
+import { env, l10n, QuickPickItem, window } from 'vscode';
 import { EOL } from 'os';
 import { getCommandDefinitions } from '../config';
 
-const commandDefinitions = getCommandDefinitions('Paste case as');
+const commandDefinitions = getCommandDefinitions();
 
 /**
  * 1. 显示命令选择菜单，让用户选择粘贴方式；
@@ -21,12 +21,12 @@ export async function pasteCaseQuickPick() {
   const hasMultipleLines = clipboardText.includes(EOL);
   const items: QuickPickItem[] = commandDefinitions.map((item) => ({
     label: item.label,
-    description: hasMultipleLines ? item.description : item.func(clipboardText),
+    description: hasMultipleLines ? '' : item.func(clipboardText),
   }));
 
   window
     .showQuickPick(items, {
-      placeHolder: 'Choose a case variant to paste',
+      placeHolder: l10n.t('Choose a case variant to paste'),
     })
     .then((command) => command && runCommand(command.label));
 }

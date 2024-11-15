@@ -1,0 +1,6 @@
+{
+  "extension.description": "复制、粘贴、转换命名风格",
+  "extension.changeCaseCommands": "转换命名风格",
+  "extension.changeCaseRenameFile": "重命名为...",
+  "extension.changeCaseRenameDir": "重命名为..."
+}

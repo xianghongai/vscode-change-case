@@ -6,16 +6,16 @@
   <a href="https://github.com/xianghongai/vscode-change-case">
     <img src="https://img.shields.io/github/repo-size/xianghongai/vscode-change-case?color=4ac51c&style=plastic&?cacheSeconds=3600">
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=nicholashsiang.vscode-change-case">
-    <img src="https://img.shields.io/visual-studio-marketplace/v/nicholashsiang.vscode-change-case?color=%234ac51c&style=plastic&?cacheSeconds=3600">
+  <a href="https://marketplace.visualstudio.com/items?itemName=NicholasHsiang.vscode-change-case-next">
+    <img src="https://img.shields.io/visual-studio-marketplace/v/NicholasHsiang.vscode-change-case-next?color=%234ac51c&style=plastic&?cacheSeconds=3600">
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=nicholashsiang.vscode-change-case">
-    <img src="https://img.shields.io/visual-studio-marketplace/d/nicholashsiang.vscode-change-case?color=4ac51c&style=plastic&?cacheSeconds=3600">
+  <a href="https://marketplace.visualstudio.com/items?itemName=NicholasHsiang.vscode-change-case-next">
+    <img src="https://img.shields.io/visual-studio-marketplace/d/NicholasHsiang.vscode-change-case-next?color=4ac51c&style=plastic&?cacheSeconds=3600">
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=nicholashsiang.vscode-change-case">
-    <img src="https://img.shields.io/visual-studio-marketplace/r/nicholashsiang.vscode-change-case?color=4ac51c&style=plastic&?cacheSeconds=3600">
+  <a href="https://marketplace.visualstudio.com/items?itemName=NicholasHsiang.vscode-change-case-next">
+    <img src="https://img.shields.io/visual-studio-marketplace/r/NicholasHsiang.vscode-change-case-next?color=4ac51c&style=plastic&?cacheSeconds=3600">
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=nicholashsiang.vscode-change-case">
+  <a href="https://marketplace.visualstudio.com/items?itemName=NicholasHsiang.vscode-change-case-next">
     <img src="https://img.shields.io/github/license/xianghongai/vscode-change-case?color=4ac51c&style=plastic&?cacheSeconds=3600">
   </a>
 </p>
@@ -111,8 +111,8 @@ We can:
 
 ## Rename / 重命名
 
-- 文件重命名，在资源管理器、编辑器中右键选择文件，然后选择 `Rename file as...` 即可。
-- 目录重命名，在资源管理器中右键选择目录，然后选择 `Rename directory as...` 即可。
+- 文件重命名，在资源管理器、编辑器中右键选择文件，然后选择 `Rename as...`/`重命名...` 即可。
+- 目录重命名，在资源管理器中右键选择目录，然后选择 `Rename as...`/`重命名...` 即可。
 
 ## License 📃
 

@@ -2,8 +2,8 @@
   "name": "vscode-change-case-next",
   "publisher": "NicholasHsiang",
   "displayName": "Change Case++",
-  "description": "Quickly change/copy/paste the case (camelCase, CONSTANT_CASE, snake_case, kebab-case, etc) of the current selection or current word",
-  "version": "1.0.0",
+  "description": "%extension.description%",
+  "version": "1.1.0",
   "license": "MIT",
   "private": true,
   "icon": "images/change-case-icon.png",
@@ -20,7 +20,17 @@
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "change case",
+    "update case",
+    "upgrade case",
+    "copy",
+    "paste",
+    "rename",
+    "naming"
+  ],
   "main": "./out/extension.js",
+  "l10n": "./l10n",
   "activationEvents": [
     "onStartupFinished"
   ],
@@ -28,15 +38,15 @@
     "commands": [
       {
         "command": "extension.changeCase.commands",
-        "title": "Change Case Commands"
+        "title": "%extension.changeCaseCommands%"
       },
       {
         "command": "extension.changeCase.renameFile",
-        "title": "Rename file as"
+        "title": "%extension.changeCaseRenameFile%"
       },
       {
         "command": "extension.changeCase.renameDir",
-        "title": "Rename directory as"
+        "title": "%extension.changeCaseRenameDir%"
       },
       {
         "command": "extension.changeCase.camelCase",
@@ -281,6 +291,16 @@
           "when": "resourceSet",
           "command": "extension.changeCase.renameFile",
           "group": "7_modification"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "extension.changeCase.renameFile",
+          "when": "false"
+        },
+        {
+          "command": "extension.changeCase.renameDir",
+          "when": "false"
         }
       ]
     }

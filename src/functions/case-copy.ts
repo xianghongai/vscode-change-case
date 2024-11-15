@@ -1,9 +1,9 @@
-import { env, QuickPickItem, window } from 'vscode';
+import { env, l10n, QuickPickItem, window } from 'vscode';
 import { EOL } from 'os';
 import { getSelectedText, getSelectedTextIfOnlyOneSelection } from '../util';
 import { getCommandDefinitions } from '../config';
 
-const commandDefinitions = getCommandDefinitions('Copy case as');
+const commandDefinitions = getCommandDefinitions();
 
 /**
  * 1. 显示命令选择菜单，让用户选择复制方式；
@@ -16,12 +16,12 @@ export function copyCaseQuickPick() {
   // 如果只有一个选择，显示转换后的预览，否则使用 COMMAND_DEFINITIONS 中的描述
   const items: QuickPickItem[] = commandDefinitions.map((item) => ({
     label: item.label,
-    description: firstSelectedText ? item.func(firstSelectedText) : item.description,
+    description: firstSelectedText ? item.func(firstSelectedText) : '',
   }));
 
   window
     .showQuickPick(items, {
-      placeHolder: 'Choose a case variant to copy',
+      placeHolder: l10n.t('Choose a case variant to copy'),
     })
     .then((command) => command && runCommand(command.label));
 }

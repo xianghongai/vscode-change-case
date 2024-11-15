@@ -1,0 +1,13 @@
+{
+  "Change case to": "重命名为",
+  "Choose a case variant to change": "选择一种命名风格",
+  "Choose a case variant to copy": "选择一种命名风格",
+  "Choose a case variant to paste": "选择一种命名风格",
+  "Select naming format": "选择一种命名风格",
+  "File renamed to: {0}": "文件重命名为: {0}",
+  "Rename {0}": "重命名 {0}",
+  "Failed to rename file: {0}": "文件重命名失败: {0}",
+  "Directory renamed to: {0}": "目录重命名为: {0}",
+  "Failed to rename directory: {0}": "目录重命名失败: {0}",
+  "Directory name already exists": "目录名已存在"
+}

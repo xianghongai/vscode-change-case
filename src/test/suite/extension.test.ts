@@ -5,7 +5,7 @@ import { getCommandDefinitions } from '../../config';
 suite('Change Case Extension Tests', () => {
   // 测试输入
   const testString = 'hello world test';
-  const COMMAND_DEFINITIONS = getCommandDefinitions('Change case to');
+  const COMMAND_DEFINITIONS = getCommandDefinitions();
 
   // 测试 camelCase
   test('should convert to `camelCase`', async () => {

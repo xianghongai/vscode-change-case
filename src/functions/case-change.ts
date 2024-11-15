@@ -1,4 +1,4 @@
-import { QuickPickItem, Range, window } from 'vscode';
+import { l10n, QuickPickItem, Range, window } from 'vscode';
 import { EOL } from 'os';
 import { uniq } from 'lodash';
 import {
@@ -10,7 +10,7 @@ import {
 } from '../util';
 import { getCommandDefinitions } from '../config';
 
-const commandDefinitions = getCommandDefinitions('Change case to');
+const commandDefinitions = getCommandDefinitions();
 
 /**
  * 1. 显示命令选择菜单，让用户选择转换方式；
@@ -23,12 +23,12 @@ export function changeCaseQuickPick() {
   // 如果只有一个选择，显示转换后的预览，否则使用 COMMAND_DEFINITIONS 中的描述
   const items: QuickPickItem[] = commandDefinitions.map((item) => ({
     label: item.label,
-    description: firstSelectedText ? item.func(firstSelectedText) : item.description,
+    description: firstSelectedText ? item.func(firstSelectedText) : '',
   }));
 
   window
     .showQuickPick(items, {
-      placeHolder: 'Choose a case variant to change',
+      placeHolder: l10n.t('Choose a case variant to change'),
     })
     .then((command) => command && runCommand(command.label));
 }

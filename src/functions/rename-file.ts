@@ -1,8 +1,8 @@
-import { QuickPickItem, Uri, window, workspace, WorkspaceEdit } from 'vscode';
+import { l10n, QuickPickItem, Uri, window, workspace, WorkspaceEdit } from 'vscode';
 import { basename, extname } from 'path';
 import { getCommandDefinitions } from '../config';
 
-const commandDefinitions = getCommandDefinitions('Rename file to');
+const commandDefinitions = getCommandDefinitions();
 
 export async function renameFile(uri: Uri) {
   const fullFileName = basename(uri.fsPath);
@@ -19,14 +19,14 @@ export async function renameFile(uri: Uri) {
     fullExt = `${ext}${fullExt}`;
   }
 
-  const items: QuickPickItem[] = commandDefinitions.map((c) => ({
-    label: c.label,
-    description: c.func(fileName)
+  const items: QuickPickItem[] = commandDefinitions.map((item) => ({
+    label: item.label,
+    description: item.func(fileName)
   }));
 
   const selectedVariant = await window.showQuickPick(items, {
-    title: `Rename ${fullFileName}`,
-    placeHolder: 'Select naming format'
+    title: l10n.t('Rename {0}', `${fullFileName}`),
+    placeHolder: l10n.t('Select naming format'),
   });
 
   if (!selectedVariant) {
@@ -39,8 +39,8 @@ export async function renameFile(uri: Uri) {
     edit.renameFile(uri, Uri.joinPath(uri, '..', `${newFileName}${fullExt}`));
     await workspace.applyEdit(edit);
 
-    window.showInformationMessage(`File renamed to: ${newFileName}${fullExt}`);
+    // window.showInformationMessage(l10n.t('File renamed to: {0}', `${newFileName}${fullExt}`));
   } catch (error) {
-    window.showErrorMessage(`Failed to rename file: ${error instanceof Error ? error.message : String(error)}`);
+    window.showErrorMessage(l10n.t('Failed to rename file: {0}', `${error instanceof Error ? error.message : String(error)}`));
   }
 }
