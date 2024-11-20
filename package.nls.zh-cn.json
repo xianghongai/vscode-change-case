@@ -4,5 +4,6 @@
   "extension.changeCaseRenameFile": "重命名为...",
   "extension.changeCaseRenameDir": "重命名为...",
   "extension.changeCaseCopyFileName": "复制名为...",
-  "extension.changeCaseCopyDirName": "复制名为..."
+  "extension.changeCaseCopyDirName": "复制名为...",
+  "extension.changeCase.includeDotInCurrentWord.description": "选择当前单词时，允许当前单词中有点符号 (默认为 false)"
 }

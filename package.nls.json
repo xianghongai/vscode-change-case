@@ -4,5 +4,6 @@
   "extension.changeCaseRenameFile": "Rename as...",
   "extension.changeCaseRenameDir": "Rename as...",
   "extension.changeCaseCopyFileName": "Copy Name as...",
-  "extension.changeCaseCopyDirName": "Copy Name as..."
+  "extension.changeCaseCopyDirName": "Copy Name as...",
+  "extension.changeCase.includeDotInCurrentWord.description": "When selecting current word, allow dots in current word (false by default)"
 }

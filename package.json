@@ -7,6 +7,10 @@
   "license": "MIT",
   "private": true,
   "icon": "images/change-case-icon.png",
+  "author": {
+    "name": "NicholasHsiang",
+    "email": "xianghongai@gmail.com"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/xianghongai/vscode-change-case.git"
@@ -277,7 +281,7 @@
         "changeCase.includeDotInCurrentWord": {
           "type": "boolean",
           "default": "false",
-          "description": "When selecting current word, allow dots in current word (false by default)"
+          "description": "%extension.changeCase.includeDotInCurrentWord.description%"
         }
       }
     },
