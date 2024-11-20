@@ -20,7 +20,7 @@
   </a>
 </p>
 
-Fork: 🎉 Here ← [hjdarnel/vscode-change-case](https://github.com/hjdarnel/vscode-change-case) ← [wmaurer/vscode-change-case](https://github.com/wmaurer/vscode-change-case) ← (: Thanks.
+Fork: 🎉 Here ← [hjdarnel/vscode-change-case](https://github.com/hjdarnel/vscode-change-case) ← [wmaurer/vscode-change-case](https://github.com/wmaurer/vscode-change-case) 🫰.
 
 ## Design
 
