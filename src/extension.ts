@@ -3,16 +3,15 @@ import { COMMAND_LABELS } from './constant';
 import { changeCaseQuickPick, runCommand as changeCaseRunCommand } from './functions/case-change';
 import { copyCaseQuickPick, runCommand as copyCaseRunCommand } from './functions/case-copy';
 import { pasteCaseQuickPick, runCommand as pasteCaseRunCommand } from './functions/case-paste';
-import { renameFile } from './functions/rename-file';
-import { renameDir } from './functions/rename-dir';
-import { copyFileName } from './functions/copy-file-name';
 import { copyDirName } from './functions/copy-dir-name';
+import { copyFileName } from './functions/copy-file-name';
+import { renameDir } from './functions/rename-dir';
+import { renameFile } from './functions/rename-file';
 
 export async function activate({ subscriptions }: ExtensionContext) {
   /* 1. Change Case */
   const changeCaseQuickPickCommand = commands.registerCommand('extension.changeCase.commands', changeCaseQuickPick);
-  const renameFileCommand = commands.registerCommand('extension.changeCase.renameFile', renameFile);
-  const renameDirCommand = commands.registerCommand('extension.changeCase.renameDir', renameDir);
+
   // Change Case Commands
   const changeToCamelCase = commands.registerCommand('extension.changeCase.camelCase', () => changeCaseRunCommand(COMMAND_LABELS.camelCase));
   const changeToCapitalCase = commands.registerCommand('extension.changeCase.capitalCase', () => changeCaseRunCommand(COMMAND_LABELS.capitalCase));
@@ -56,9 +55,11 @@ export async function activate({ subscriptions }: ExtensionContext) {
   const pasteAsSnakeCaseCommand = commands.registerCommand('extension.pasteCase.snakeCase', () => pasteCaseRunCommand(COMMAND_LABELS.snakeCase));
   const pasteAsTrainCaseCommand = commands.registerCommand('extension.pasteCase.trainCase', () => pasteCaseRunCommand(COMMAND_LABELS.trainCase));
 
-  /* 4. Copy File/Directory Name */
-  const copyFileNameCommand = commands.registerCommand('extension.copyFileName', copyFileName);
-  const copyDirNameCommand = commands.registerCommand('extension.copyDirName', copyDirName);
+  /* 4. Copy/Rename File/Directory Name */
+  const copyFileNameCommand = commands.registerCommand('extension.changeCase.copyFileName', copyFileName);
+  const copyDirNameCommand = commands.registerCommand('extension.changeCase.copyDirName', copyDirName);
+  const renameFileCommand = commands.registerCommand('extension.changeCase.renameFile', renameFile);
+  const renameDirCommand = commands.registerCommand('extension.changeCase.renameDir', renameDir);
 
   /* x. 注册所有命令 */
   const allCommands = [
