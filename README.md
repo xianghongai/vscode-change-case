@@ -34,6 +34,8 @@ Fork: 🎉 Here ← [hjdarnel/vscode-change-case](https://github.com/hjdarnel/vs
 
 ## Change Case / 更新为...
 
+![示例：Change Case](./images/example/change-case.gif)
+
 Just do it:
 
 1. Trigger with the <strong><u style="color: red;">U</u></strong>Pdate operation "prefix";
@@ -61,6 +63,8 @@ Just do it:
 
 ## Copy Case / 复制为...
 
+![示例：Copy Case](./images/example/copy-case.gif)
+
 That's it:
 
 1. Trigger with the <strong><u style="color: red;">Y</u></strong>ank operation "prefix";
@@ -86,6 +90,8 @@ That's it:
 
 ## Paste Case / 粘贴为...
 
+![示例：Paste Case](./images/example/paste-case.gif)
+
 We can:
 
 1. Trigger with the <strong><u style="color: red;">I</u></strong>nsert operation "prefix";
@@ -110,6 +116,8 @@ We can:
 所支持的风格命名指令同上。
 
 ## File/Directory Name / 文件/目录名
+
+![示例：File/Directory Name](./images/example/file-directory-name.gif)
 
 - File rename: Explorer/Editor context menu, and then select `Rename as...`;
 - Directory rename: Explorer context menu, and then select `Rename as...`;
