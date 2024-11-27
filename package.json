@@ -19,7 +19,7 @@
     "url": "https://github.com/xianghongai/vscode-change-case/issues"
   },
   "engines": {
-    "vscode": "^1.90.0"
+    "vscode": "^1.70.0"
   },
   "categories": [
     "Other"
@@ -357,9 +357,10 @@
     "@types/lodash": "^4.17.13",
     "@types/mocha": "^10.0.9",
     "@types/node": "^22.9.0",
-    "@types/vscode": "^1.90.0",
+    "@types/vscode": "^1.70.0",
     "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^8.14.0",
+    "@vscode/l10n-dev": "^0.0.35",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
     "@vscode/vsce": "^3.2.1",

@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.2.3 (2024-11-27)
+
+- engines: vscode >= 1.70.0
+
+## v1.2.2 (2024-11-27)
+
+- 更新文档 (Screenshots)；
+- 修复 `copyFileName`/`copyDirName` 指令注册异常。
+
 ## v1.2.1 (2024-11-20)
 
 - 更新文档。
